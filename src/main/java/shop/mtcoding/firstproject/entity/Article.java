@@ -4,7 +4,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.ToString;
 
+
+// TODO: @AllArgsConstructor 이거 안 됨.
+//@ToString
+@ToString
 @Entity
 public class Article {
 
@@ -27,15 +32,6 @@ public class Article {
     public Article() {
 
     }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
-
-
 }
+
+
