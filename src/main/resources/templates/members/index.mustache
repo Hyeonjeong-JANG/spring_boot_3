@@ -3,19 +3,19 @@
     <thead>
     <tr>
         <th scope="col">ID</th>
-        <th scope="col">Title</th>
-        <th scope="col">Content</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
     </tr>
     </thead>
     <tbody>
     {{#memberList}}
         <tr>
             <th scope="row">{{id}}</th>
+            <td><a href="/members/{{id}}">{{email}}</a></td>
             <td colspan="2">{{password}}</td>
-            <td>content</td>
         </tr>
     {{/memberList}}
     </tbody>
 </table>
-
+<a href="/signup">회원가입</a>
 {{>layouts/footer}}
