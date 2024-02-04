@@ -1,5 +1,6 @@
 package shop.mtcoding.firstproject.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,7 @@ import shop.mtcoding.firstproject.dto.ArticleForm;
 import shop.mtcoding.firstproject.entity.Article;
 import shop.mtcoding.firstproject.repository.ArticleRepository;
 
+@Slf4j
 @Controller
 public class ArticleController {
     @Autowired
@@ -22,7 +24,7 @@ public class ArticleController {
 
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm form) {
-        System.out.println("articleForm = " + form.toString());
+//        System.out.println("articleForm = " + form.toString());
 
         // 1. DTO를 엔티티로 변환
         Article article = form.toEntity();
