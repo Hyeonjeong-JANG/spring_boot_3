@@ -11,6 +11,8 @@ import shop.mtcoding.firstproject.dto.ArticleForm;
 import shop.mtcoding.firstproject.entity.Article;
 import shop.mtcoding.firstproject.repository.ArticleRepository;
 
+import java.util.ArrayList;
+
 @Slf4j
 @Controller
 public class ArticleController {
@@ -57,6 +59,27 @@ public class ArticleController {
         // 3. 뷰 페이지 설정하기
 
         return "articles/show";
+    }
+
+    @GetMapping("/articles")
+    public String index(Model model){
+        log.info(model.toString());
+
+        // 1. 모든 데이터 가져오기
+//        업캐스팅
+//        Iterable<Article> articleEntityList=  articleRepository.findAll();
+//        다운캐스팅
+        ArrayList<Article> articleEntityList= articleRepository.findAll();
+        log.info(articleEntityList.toString());
+
+        // 2. 모델에 데이터 등록하기
+        model.addAttribute("articleList", articleEntityList);
+        log.info(model.toString());
+
+        // 3. 뷰 페이지 설정하기
+
+
+        return "articles/index";
     }
 
 }
