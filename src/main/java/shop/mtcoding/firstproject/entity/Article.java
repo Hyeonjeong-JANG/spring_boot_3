@@ -4,15 +4,17 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
 
 // TODO: @AllArgsConstructor 이거 안 됨.
 //@ToString
 
-//@AllArgsConstructor
-//@ToString
+@AllArgsConstructor
+@ToString
 @Entity
-public class Article {
+public class Article { // @AllArgsConstructor 어노테이션을 사용하면 기본 생성자를 추가로 정의해주어야 한다.
 
     @Id
     @GeneratedValue
@@ -24,23 +26,8 @@ public class Article {
     @Column
     private String content;
 
-    public Article(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
-
     public Article() {
 
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
     }
 }
 

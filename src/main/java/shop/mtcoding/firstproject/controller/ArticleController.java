@@ -15,7 +15,7 @@ public class ArticleController {
     @Autowired
     private ArticleRepository articleRepository;
 
-    // TODO: articles를 뺀다면? 절대 안 됨!!!
+    // articles를 뺀다면? 절대 안 됨!!!
     @GetMapping("/articles/new") // articles를 뺀다면?
     public String newArticleForm() {
 
