@@ -3,7 +3,9 @@ package shop.mtcoding.firstproject.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import shop.mtcoding.firstproject.dto.ArticleForm;
 import shop.mtcoding.firstproject.entity.Article;
@@ -39,4 +41,22 @@ public class ArticleController {
 
         return "";
     }
+
+    @GetMapping("/articles/{id}")
+    public String show(@PathVariable Long id, Model model) {
+        log.info("id = " + id);
+        // 1. id를 조회해 데이터 가져오기
+//        Optional<Article> articleEntity = articleRepository.findById(id);
+        Article articleEntity = articleRepository.findById(id).orElse(null); // id로 조회한 결과, 값이 있으면 articleEntity 변수에 값을 넣고, 해당 id값이 없으면 null을 반환해라.
+     log.info("id를 조회해 데이터 가져오기");
+
+        // 2. 모델에 데이터 등록하기
+        model.addAttribute("article", articleEntity);
+        log.info("모델에 데이터 등록하기: "+articleEntity);
+
+        // 3. 뷰 페이지 설정하기
+
+        return "articles/show";
+    }
+
 }

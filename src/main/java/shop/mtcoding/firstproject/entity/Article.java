@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
@@ -12,6 +13,7 @@ import lombok.ToString;
 //@ToString
 
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @Entity
 public class Article { // @AllArgsConstructor 어노테이션을 사용하면 기본 생성자를 추가로 정의해주어야 한다.
@@ -26,9 +28,6 @@ public class Article { // @AllArgsConstructor 어노테이션을 사용하면 �
     @Column
     private String content;
 
-    public Article() {
-
-    }
 }
 
 
